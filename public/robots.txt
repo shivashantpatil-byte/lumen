@@ -1,0 +1,8 @@
+# Public pages may be crawled. Private areas are protected by authentication
+# and by "X-Robots-Tag: noindex" response headers (see netlify.toml); robots.txt
+# is deliberately NOT used to hide them because it would advertise their paths
+# and stop crawlers from ever seeing the noindex header.
+User-agent: *
+Allow: /
+
+Sitemap: %%SITE_URL%%/sitemap.xml

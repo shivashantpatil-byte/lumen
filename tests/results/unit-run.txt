@@ -1,0 +1,290 @@
+TAP version 13
+# {"level":"warn","reqId":"47026dad-777c-437b-9311-fd684c6de957","event":"admin_denied","status":401}
+# {"level":"warn","reqId":"9672fd8c-f616-4726-bcfc-6406c126d6c9","event":"admin_denied","status":401}
+# {"level":"warn","reqId":"39c11006-4f7d-4657-9d61-0560e45364d9","event":"admin_denied","status":403}
+# {"level":"warn","reqId":"fe7a30f4-0468-4d69-bcb0-c425437ea61d","event":"admin_denied","status":403}
+# {"level":"warn","reqId":"0dcbe103-b06b-4cc7-ac74-90ee6b31b493","event":"admin_denied","status":403}
+# {"level":"warn","reqId":"cebbcfef-1898-4e86-975f-218f63a25c34","event":"admin_denied","status":403}
+# {"level":"info","reqId":"0c35d20c-c789-4776-90e1-a5abdd8f28b8","event":"status_updated","inquiryId":"10000000-0000-4000-8000-000000000001","status":"in_progress","adminId":"admin-user-id"}
+# {"level":"info","reqId":"6762d00f-314d-44e0-92b4-808dcf69a8ca","event":"status_updated","inquiryId":"10000000-0000-4000-8000-000000000001","status":"archived","adminId":"admin-user-id"}
+# {"level":"warn","reqId":"ede02b5a-9941-4c65-951c-340f76f0632a","event":"admin_denied","status":401}
+# {"level":"info","reqId":"44b67c55-05e5-49aa-8b4d-6c7158a7c736","event":"login_ok"}
+# {"level":"info","reqId":"a89d93e5-f6e2-4622-8b90-efd13070e815","event":"login_failed"}
+# {"level":"warn","reqId":"2b4025cb-35ad-4975-b2da-948d565446c4","event":"login_not_admin"}
+# {"level":"info","reqId":"42e2695c-350f-4290-8da8-dd82bf54c79c","event":"login_failed"}
+# {"level":"info","reqId":"fdfdf36d-499b-4b26-b980-2f48a36aca58","event":"login_failed"}
+# {"level":"info","reqId":"c9b0a0b2-4156-4715-869b-e51832311523","event":"login_failed"}
+# {"level":"info","reqId":"76eec807-a3fe-4e6e-905d-c6fd369385c9","event":"login_failed"}
+# {"level":"info","reqId":"9901e3d6-dd40-4dc7-998a-985f74ae4425","event":"login_failed"}
+# {"level":"info","reqId":"3fe1d561-01fb-4110-b2b5-30f309f3b57c","event":"login_failed"}
+# {"level":"info","reqId":"e5b12a0d-6583-4ca4-a4b4-16561f00c65e","event":"login_failed"}
+# {"level":"info","reqId":"1fa984ff-61da-4de0-876f-f6dd80c4a570","event":"login_failed"}
+# {"level":"warn","reqId":"4fa44621-7832-450b-aee2-8e045068503a","event":"login_rate_limited"}
+# {"level":"error","reqId":"62a9759b-453d-46b4-8be8-f2175474343e","event":"admin_list_error","upstreamStatus":null}
+# Subtest: no token -> 401; garbage token -> 401; valid non-admin -> 403 (list)
+ok 1 - no token -> 401; garbage token -> 401; valid non-admin -> 403 (list)
+  ---
+  duration_ms: 50.64193
+  type: 'test'
+  ...
+# Subtest: non-admin cannot read detail or update; data unchanged
+ok 2 - non-admin cannot read detail or update; data unchanged
+  ---
+  duration_ms: 4.265685
+  type: 'test'
+  ...
+# Subtest: a client-side 'admin' flag is ignored (header/body/query)
+ok 3 - a client-side 'admin' flag is ignored (header/body/query)
+  ---
+  duration_ms: 2.078734
+  type: 'test'
+  ...
+# Subtest: admin list: 200, newest first, 25 per page, total, and NO message bodies
+ok 4 - admin list: 200, newest first, 25 per page, total, and NO message bodies
+  ---
+  duration_ms: 4.337614
+  type: 'test'
+  ...
+# Subtest: admin list: sort asc, status filter, invalid filter rejected
+ok 5 - admin list: sort asc, status filter, invalid filter rejected
+  ---
+  duration_ms: 7.172337
+  type: 'test'
+  ...
+# Subtest: admin detail: full record; unknown id 404; malformed id 400
+ok 6 - admin detail: full record; unknown id 404; malformed id 400
+  ---
+  duration_ms: 2.77096
+  type: 'test'
+  ...
+# Subtest: admin can update status; response has only id/status/updated_at
+ok 7 - admin can update status; response has only id/status/updated_at
+  ---
+  duration_ms: 4.571434
+  type: 'test'
+  ...
+# Subtest: invalid status / malformed id / extra fields are rejected or ignored
+ok 8 - invalid status / malformed id / extra fields are rejected or ignored
+  ---
+  duration_ms: 7.163484
+  type: 'test'
+  ...
+# Subtest: status endpoint: wrong method 405; cross-origin 403; authorisation precedes body parsing
+ok 9 - status endpoint: wrong method 405; cross-origin 403; authorisation precedes body parsing
+  ---
+  duration_ms: 2.957999
+  type: 'test'
+  ...
+# Subtest: login: admin succeeds and receives tokens; wrong password 401; non-admin 403 and session revoked
+ok 10 - login: admin succeeds and receives tokens; wrong password 401; non-admin 403 and session revoked
+  ---
+  duration_ms: 6.197485
+  type: 'test'
+  ...
+# Subtest: login: bad input 400; rate-limited after 8 attempts
+ok 11 - login: bad input 400; rate-limited after 8 attempts
+  ---
+  duration_ms: 8.425953
+  type: 'test'
+  ...
+# Subtest: refresh re-checks admin membership; logout revokes
+ok 12 - refresh re-checks admin membership; logout revokes
+  ---
+  duration_ms: 14.94724
+  type: 'test'
+  ...
+# Subtest: upstream outage -> 502, not a crash or false success
+ok 13 - upstream outage -> 502, not a crash or false success
+  ---
+  duration_ms: 1.58173
+  type: 'test'
+  ...
+# Subtest: service-role key is never sent to Supabase Auth user lookup, and never returned
+ok 14 - service-role key is never sent to Supabase Auth user lookup, and never returned
+  ---
+  duration_ms: 1.143054
+  type: 'test'
+  ...
+# Subtest: nothing under public/ references secret env names or contains key-like strings
+ok 15 - nothing under public/ references secret env names or contains key-like strings
+  ---
+  duration_ms: 242.606249
+  type: 'test'
+  ...
+# Subtest: no .env file is present, and .env.example holds placeholders only
+ok 16 - no .env file is present, and .env.example holds placeholders only
+  ---
+  duration_ms: 159.250907
+  type: 'test'
+  ...
+# Subtest: .gitignore excludes env files and node_modules
+ok 17 - .gitignore excludes env files and node_modules
+  ---
+  duration_ms: 113.407753
+  type: 'test'
+  ...
+# Subtest: Formspree is fully removed from the public site
+ok 18 - Formspree is fully removed from the public site
+  ---
+  duration_ms: 11.539635
+  type: 'test'
+  ...
+# Subtest: only the intended environment variable names are used by the functions
+ok 19 - only the intended environment variable names are used by the functions
+  ---
+  duration_ms: 4.164225
+  type: 'test'
+  ...
+# Subtest: valid submission is stored and confirmed with 201
+ok 20 - valid submission is stored and confirmed with 201
+  ---
+  duration_ms: 47.899022
+  type: 'test'
+  ...
+# Subtest: missing required fields -> 422 with field errors, nothing stored
+ok 21 - missing required fields -> 422 with field errors, nothing stored
+  ---
+  duration_ms: 1.5711
+  type: 'test'
+  ...
+# Subtest: whitespace-only name/message rejected
+ok 22 - whitespace-only name/message rejected
+  ---
+  duration_ms: 1.659813
+  type: 'test'
+  ...
+# Subtest: invalid email "plainaddress" -> 422
+ok 23 - invalid email "plainaddress" -> 422
+  ---
+  duration_ms: 2.197737
+  type: 'test'
+  ...
+# Subtest: invalid email "a@b" -> 422
+ok 24 - invalid email "a@b" -> 422
+  ---
+  duration_ms: 1.267183
+  type: 'test'
+  ...
+# Subtest: invalid email "a b@c.de" -> 422
+ok 25 - invalid email "a b@c.de" -> 422
+  ---
+  duration_ms: 0.875967
+  type: 'test'
+  ...
+# Subtest: invalid email "@x.com" -> 422
+ok 26 - invalid email "@x.com" -> 422
+  ---
+  duration_ms: 0.749562
+  type: 'test'
+  ...
+# Subtest: invalid email "a@@b.com" -> 422
+ok 27 - invalid email "a@@b.com" -> 422
+  ---
+  duration_ms: 0.726917
+  type: 'test'
+  ...
+# Subtest: invalid project type -> 422
+ok 28 - invalid project type -> 422
+  ---
+  duration_ms: 1.314061
+  type: 'test'
+  ...
+# Subtest: non-string field types rejected (no coercion)
+ok 29 - non-string field types rejected (no coercion)
+  ---
+  duration_ms: 2.14224
+  type: 'test'
+  ...
+# Subtest: over-long fields -> 422
+ok 30 - over-long fields -> 422
+  ---
+  duration_ms: 1.169642
+  type: 'test'
+  ...
+# Subtest: message at exactly 5000 chars is accepted
+ok 31 - message at exactly 5000 chars is accepted
+  ---
+  duration_ms: 1.072003
+  type: 'test'
+  ...
+# Subtest: oversized payload -> 413 (declared and actual)
+ok 32 - oversized payload -> 413 (declared and actual)
+  ---
+  duration_ms: 1.168321
+  type: 'test'
+  ...
+# Subtest: wrong content type -> 415; malformed JSON -> 400; array body -> 400
+ok 33 - wrong content type -> 415; malformed JSON -> 400; array body -> 400
+  ---
+  duration_ms: 2.436979
+  type: 'test'
+  ...
+# Subtest: non-POST methods -> 405
+ok 34 - non-POST methods -> 405
+  ---
+  duration_ms: 0.560284
+  type: 'test'
+  ...
+# Subtest: honeypot filled -> rejected (400), NOT reported as success, nothing stored
+ok 35 - honeypot filled -> rejected (400), NOT reported as success, nothing stored
+  ---
+  duration_ms: 0.690466
+  type: 'test'
+  ...
+# Subtest: cross-origin browser request -> 403
+ok 36 - cross-origin browser request -> 403
+  ---
+  duration_ms: 0.57527
+  type: 'test'
+  ...
+# Subtest: same-origin request allowed
+ok 37 - same-origin request allowed
+  ---
+  duration_ms: 0.7121
+  type: 'test'
+  ...
+# Subtest: database failure -> 502, never a success response
+ok 38 - database failure -> 502, never a success response
+  ---
+  duration_ms: 3.662056
+  type: 'test'
+  ...
+# Subtest: network failure reaching Supabase -> 502, never success
+ok 39 - network failure reaching Supabase -> 502, never success
+  ---
+  duration_ms: 0.785628
+  type: 'test'
+  ...
+# Subtest: missing environment variables -> 500 with safe message
+ok 40 - missing environment variables -> 500 with safe message
+  ---
+  duration_ms: 3.356541
+  type: 'test'
+  ...
+# Subtest: rate limit: 6th attempt from one IP -> 429 with Retry-After; other IP unaffected
+ok 41 - rate limit: 6th attempt from one IP -> 429 with Retry-After; other IP unaffected
+  ---
+  duration_ms: 6.205204
+  type: 'test'
+  ...
+# Subtest: responses and logs never contain the message, email, name or secret key
+ok 42 - responses and logs never contain the message, email, name or secret key
+  ---
+  duration_ms: 1.71589
+  type: 'test'
+  ...
+# Subtest: response carries no-store and a request id
+ok 43 - response carries no-store and a request id
+  ---
+  duration_ms: 7.400222
+  type: 'test'
+  ...
+1..43
+# tests 43
+# suites 0
+# pass 43
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1487.680191

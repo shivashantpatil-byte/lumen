@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — LUMEN Interior Architecture &amp; Design</title>
+  <meta name="description" content="Send an inquiry to the LUMEN concept studio. LUMEN is a fictional portfolio project, not a real business." />
+  <link rel="canonical" href="%%SITE_URL%%/contact.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="LUMEN (concept)" />
+  <meta property="og:title" content="Contact — LUMEN Interior Architecture &amp; Design" />
+  <meta property="og:description" content="Send an inquiry to the LUMEN concept studio. LUMEN is a fictional portfolio project, not a real business." />
+  <meta property="og:url" content="%%SITE_URL%%/contact.html" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">LUMEN</a>
+
+      <nav class="main-nav" aria-label="Primary">
+        <ul>
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="projects.html" class="nav-link">Projects</a></li>
+          <li><a href="studio.html" class="nav-link">Studio</a></li>
+          <li><a href="contact.html" class="nav-link is-active" aria-current="page">Contact</a></li>
+        </ul>
+      </nav>
+
+      <a href="contact.html" class="btn btn-primary header-cta">Start a Project</a>
+
+      <button type="button" class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile">
+      <ul>
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="projects.html" class="nav-link">Projects</a></li>
+        <li><a href="studio.html" class="nav-link">Studio</a></li>
+        <li><a href="contact.html" class="nav-link is-active" aria-current="page">Contact</a></li>
+        <li><a href="contact.html" class="btn btn-primary">Start a Project</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main" tabindex="-1">
+
+    <section class="page-intro container">
+      <p class="eyebrow">Contact</p>
+      <h1>Let's create something meaningful.</h1>
+      <p class="body-lg">
+        Tell us a little about your space and where you are in the
+        process — even a rough idea is a good place to start.
+      </p>
+    </section>
+
+    <section class="contact-layout container">
+      <div class="contact-grid">
+
+        <div class="contact-info">
+          <h2>Studio</h2>
+          <div class="callout">
+            <p>LUMEN is a fictional concept studio. No real email address, phone number or street address is published for it. The inquiry form is the only way to get in touch, and it is a working demonstration of the contact flow.</p>
+          </div>
+          <ul>
+            <li>
+              <span class="info-label">Inquiries</span>
+              <p>Use the form. Messages are stored securely and read by the site owner.</p>
+            </li>
+            <li>
+              <span class="info-label">Location</span>
+              <p>Mumbai, India <span class="placeholder">(fictional)</span></p>
+            </li>
+          </ul>
+        </div>
+
+        <form
+          class="contact-form"
+          id="inquiry-form"
+          action="/api/submit-inquiry"
+          method="post"
+          novalidate
+        >
+          <noscript><p class="noscript-note">This form needs JavaScript to send your inquiry. Please enable it and reload the page.</p></noscript>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" required maxlength="100" autocomplete="name" aria-describedby="name-error" />
+              <span class="field-error" id="name-error">Please tell us your name.</span>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required maxlength="254" autocomplete="email" aria-describedby="email-error" />
+              <span class="field-error" id="email-error">Please enter a valid email address.</span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="project-type">Project Type</label>
+            <select id="project-type" name="project_type" required aria-describedby="project-type-error">
+              <option value="" selected disabled>Select a project type</option>
+              <option value="residential">Residential</option>
+              <option value="hospitality">Hospitality</option>
+              <option value="commercial">Commercial</option>
+              <option value="other">Other</option>
+            </select>
+            <span class="field-error" id="project-type-error">Please select a project type.</span>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required maxlength="5000" aria-describedby="message-error"></textarea>
+            <span class="field-error" id="message-error">Please add a short message (up to 5,000 characters).</span>
+          </div>
+
+          <div class="hp-field" aria-hidden="true">
+            <label for="website">Leave this field empty</label>
+            <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" />
+          </div>
+
+          <p class="form-note" id="form-privacy">
+            We use your name, email and message only to handle this inquiry. They are stored with
+            our database provider and kept for a limited time. See the
+            <a href="privacy-policy.html">Privacy Policy</a> for details and your rights.
+          </p>
+
+          <button type="submit" class="btn btn-primary">Send Inquiry</button>
+
+          <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+        </form>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">LUMEN</a>
+        <p>Spaces shaped by light, material, and intention.</p>
+      </div>
+
+      <nav class="footer-nav" aria-label="Footer">
+        <p class="footer-heading">Studio</p>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="studio.html">Studio</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="footer-contact">
+        <p class="footer-heading">Contact</p>
+        <ul>
+          <li><a href="contact.html">Send an inquiry</a></li>
+          <li>Mumbai, India <span class="placeholder">(fictional studio)</span></li>
+        </ul>
+      </div>
+
+      <div class="footer-legal">
+        <p class="footer-heading">Legal</p>
+        <ul>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="terms-and-conditions.html">Terms &amp; Conditions</a></li>
+          <li><a href="cookie-policy.html">Cookie Policy</a></li>
+          <li><a href="admin/login.html">Admin Login</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>© 2026 LUMEN, a fictional concept studio and portfolio project. Not a real business. Photography: Unsplash.</p>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

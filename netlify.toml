@@ -1,0 +1,44 @@
+# LUMEN: Netlify configuration
+# Only the public/ folder is published. Functions live in netlify/functions
+# and are exposed at /api/* through the `config.path` export inside each function.
+
+[build]
+  publish   = "public"
+  functions = "netlify/functions"
+  # Replaces the %%SITE_URL%% token in canonical/OG tags, sitemap.xml and robots.txt
+  # with the real site URL (Netlify provides $URL automatically).
+  command   = "node scripts/set-site-url.mjs"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# ---- Security headers for every response -------------------------------
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains"
+    X-Content-Type-Options    = "nosniff"
+    X-Frame-Options           = "DENY"
+    Referrer-Policy           = "strict-origin-when-cross-origin"
+    Permissions-Policy        = "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
+    Cross-Origin-Opener-Policy = "same-origin"
+    # No inline scripts or styles are used. Fonts and photos are the only third parties.
+    Content-Security-Policy   = "default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' https://images.unsplash.com data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'"
+
+# ---- Private areas: never indexed, never cached --------------------------
+[[headers]]
+  for = "/admin/*"
+  [headers.values]
+    X-Robots-Tag  = "noindex, nofollow, noarchive"
+    Cache-Control = "no-store"
+
+[[headers]]
+  for = "/api/*"
+  [headers.values]
+    X-Robots-Tag  = "noindex, nofollow"
+    Cache-Control = "no-store"
+
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"

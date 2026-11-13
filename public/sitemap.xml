@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>%%SITE_URL%%/</loc></url>
+  <url><loc>%%SITE_URL%%/projects.html</loc></url>
+  <url><loc>%%SITE_URL%%/studio.html</loc></url>
+  <url><loc>%%SITE_URL%%/contact.html</loc></url>
+  <url><loc>%%SITE_URL%%/projects/residence-no-01.html</loc></url>
+  <url><loc>%%SITE_URL%%/projects/coastal-house.html</loc></url>
+  <url><loc>%%SITE_URL%%/projects/quiet-courtyard.html</loc></url>
+  <url><loc>%%SITE_URL%%/projects/atelier-17.html</loc></url>
+  <url><loc>%%SITE_URL%%/privacy-policy.html</loc></url>
+  <url><loc>%%SITE_URL%%/terms-and-conditions.html</loc></url>
+  <url><loc>%%SITE_URL%%/cookie-policy.html</loc></url>
+</urlset>

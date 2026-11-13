@@ -1,0 +1,97 @@
+PASS loads 200: index.html
+PASS no JS errors / CSP violations: index.html
+PASS CSP header present: index.html
+PASS loads 200: projects.html
+PASS no JS errors / CSP violations: projects.html
+PASS CSP header present: projects.html
+PASS loads 200: studio.html
+PASS no JS errors / CSP violations: studio.html
+PASS CSP header present: studio.html
+PASS loads 200: contact.html
+PASS no JS errors / CSP violations: contact.html
+PASS CSP header present: contact.html
+PASS loads 200: projects/residence-no-01.html
+PASS no JS errors / CSP violations: projects/residence-no-01.html
+PASS CSP header present: projects/residence-no-01.html
+PASS loads 200: projects/coastal-house.html
+PASS no JS errors / CSP violations: projects/coastal-house.html
+PASS CSP header present: projects/coastal-house.html
+PASS loads 200: projects/quiet-courtyard.html
+PASS no JS errors / CSP violations: projects/quiet-courtyard.html
+PASS CSP header present: projects/quiet-courtyard.html
+PASS loads 200: projects/atelier-17.html
+PASS no JS errors / CSP violations: projects/atelier-17.html
+PASS CSP header present: projects/atelier-17.html
+PASS loads 200: privacy-policy.html
+PASS no JS errors / CSP violations: privacy-policy.html
+PASS CSP header present: privacy-policy.html
+PASS loads 200: terms-and-conditions.html
+PASS no JS errors / CSP violations: terms-and-conditions.html
+PASS CSP header present: terms-and-conditions.html
+PASS loads 200: cookie-policy.html
+PASS no JS errors / CSP violations: cookie-policy.html
+PASS CSP header present: cookie-policy.html
+PASS every local link and asset resolves (no 404s)
+PASS favicon exists
+PASS no placeholder href="#" links remain
+PASS no horizontal overflow, images FAILED, 360px, all pages
+PASS no horizontal overflow, images FAILED, 375px, all pages
+PASS no horizontal overflow, images FAILED, 768px, all pages
+PASS no horizontal overflow, images FAILED, 1280px, all pages
+PASS no horizontal overflow, images loaded, 360px, all pages
+PASS no horizontal overflow, images loaded, 375px, all pages
+PASS no horizontal overflow, images loaded, 768px, all pages
+PASS no horizontal overflow, images loaded, 1280px, all pages
+PASS mobile menu closed: hidden and links not focusable
+PASS mobile menu opens; aria-expanded=true; label 'Close menu'
+PASS hamburger animates into a cross
+PASS Escape closes menu, returns focus to button, label reset
+PASS current page marked aria-current=page
+PASS skip link is first focusable and visible on focus
+PASS skip link moves focus to main content
+PASS concept notice and legal links on every page
+PASS every page has exactly one h1
+PASS unknown URL returns 404 status with custom page
+PASS 404 page is styled (root-absolute CSS loads)
+PASS footer muted text now >= 4.5:1
+PASS empty submit: 4 field errors, first field focused, error status, nothing sent
+PASS invalid fields get aria-invalid and are described by their error text
+PASS invalid email blocked client-side
+PASS valid submit: JSON POST to our function, success only after server 201
+PASS valid submit: row actually stored, email normalised, honeypot not stored
+PASS form reset only after confirmed success
+PASS no secrets in request payload / no Formspree
+PASS button re-enabled and label restored after success
+PASS DB failure: error shown, NOT success, input preserved, nothing stored
+PASS retry after DB recovers succeeds (input was preserved)
+PASS network failure: clear message, input preserved, no success
+PASS while sending: button disabled and labelled 'Sending…'
+PASS repeated clicks create only ONE inquiry
+PASS honeypot: rejected, not stored, not reported as success
+PASS honeypot field is off-screen and hidden from assistive tech
+PASS rate limit (429): friendly message, input preserved
+PASS oversized payload rejected with 413 and not stored
+PASS unauthenticated /admin/ redirects to login
+PASS admin pages: noindex meta + header, no-store
+PASS login: empty fields rejected client-side
+PASS login: wrong password shows generic error, password cleared, no session
+PASS login: valid non-admin user is refused (403) and gets no session
+PASS admin login succeeds, dashboard lists 25 of 30, newest first
+PASS list shows no message bodies
+PASS session stored in sessionStorage (not localStorage, no cookies)
+PASS pagination: page 2 shows remaining 5
+PASS filter by status
+PASS sort oldest first
+PASS detail dialog shows full message, email link and status
+PASS status change saved server-side and reflected in list
+PASS Escape closes dialog and focus returns to the View button
+PASS expired token is refreshed transparently
+PASS invalid session is sent back to login and cleared
+PASS XSS: markup in name/message is shown as text, nothing executes or is injected
+PASS logout clears session, revokes it server-side, and /admin/ requires login again
+PASS after logout, dashboard URL redirects to login
+PASS anonymous API calls to admin endpoints all return 401
+PASS admin dashboard 375px: no horizontal overflow, cards stacked
+PASS admin detail dialog fits a 375px phone
+
+95/95 checks passed

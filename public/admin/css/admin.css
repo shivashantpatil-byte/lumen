@@ -1,0 +1,47 @@
+/* Admin-only styles. Reuses the tokens and components from /css/style.css. */
+.admin-body { min-height: 100vh; background: var(--color-bg); }
+.admin-login { max-width: 28rem; margin: 6rem auto; padding: 0 var(--container-pad); }
+.admin-login h1 { margin-bottom: 1rem; }
+.admin-header { display: flex; justify-content: space-between; align-items: center; padding: 1rem var(--container-pad); border-bottom: 1px solid var(--color-line); }
+.admin-tag { font-family: var(--font-sans); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-muted); margin-left: 0.5rem; }
+.admin-main { max-width: 1100px; margin: 0 auto; padding: 2.5rem var(--container-pad) 5rem; }
+.admin-main h1 { margin-bottom: 1.5rem; }
+.admin-toolbar { display: flex; flex-wrap: wrap; gap: 1rem; align-items: flex-end; margin-bottom: 1.5rem; }
+.admin-toolbar .form-group { min-width: 11rem; }
+.admin-status { min-height: 1.5em; font-size: 0.95rem; color: var(--color-muted); }
+.admin-status.is-error { color: #B3261E; }
+.admin-status.is-success { color: #3F6B4A; }
+
+.inquiry-list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--color-line); }
+.inquiry-item { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.6fr) minmax(0, 0.9fr) minmax(0, 1.2fr) auto auto; gap: 0.75rem 1rem; align-items: center; padding: 0.9rem 0; border-bottom: 1px solid var(--color-line); }
+.inquiry-item > * { min-width: 0; overflow-wrap: anywhere; }
+.inquiry-name { font-weight: 500; }
+.inquiry-meta { color: var(--color-muted); font-size: 0.9rem; }
+.badge { display: inline-block; padding: 0.15rem 0.6rem; border: 1px solid var(--color-line); border-radius: 999px; font-size: 0.8rem; white-space: nowrap; }
+.badge-new { border-color: var(--color-accent-strong); color: var(--color-accent-strong); font-weight: 600; }
+.badge-in_progress { border-color: #8a6d00; color: #6b5400; }
+.badge-responded { border-color: #3F6B4A; color: #2f5238; }
+.badge-archived { color: var(--color-muted); }
+
+.admin-pager { display: flex; gap: 1rem; align-items: center; justify-content: center; margin-top: 2rem; }
+.admin-pager .btn[disabled] { opacity: 0.4; }
+
+dialog#detail { width: min(40rem, calc(100vw - 2rem)); max-height: calc(100vh - 2rem); overflow: auto; border: 1px solid var(--color-line); background: var(--color-bg); color: var(--color-text); padding: 0; }
+dialog#detail::backdrop { background: rgba(23, 23, 23, 0.55); }
+.detail-inner { padding: 1.75rem; }
+.detail-grid { display: grid; grid-template-columns: 8rem minmax(0, 1fr); gap: 0.5rem 1rem; margin: 1rem 0 1.5rem; }
+.detail-grid dt { color: var(--color-muted); font-size: 0.9rem; }
+.detail-grid dd { margin: 0; overflow-wrap: anywhere; }
+.detail-label { font-size: 0.9rem; color: var(--color-muted); font-family: var(--font-sans); font-weight: 400; margin-bottom: 0.5rem; }
+.detail-message { white-space: pre-wrap; overflow-wrap: anywhere; border-left: 2px solid var(--color-line); padding-left: 1rem; margin-bottom: 1.5rem; }
+.detail-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+@media (max-width: 760px) {
+  .inquiry-item { grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "name badge" "email email" "type date" "view view"; padding: 1rem 0; }
+  .inquiry-item .c-name { grid-area: name; } .inquiry-item .c-badge { grid-area: badge; }
+  .inquiry-item .c-email { grid-area: email; } .inquiry-item .c-type { grid-area: type; }
+  .inquiry-item .c-date { grid-area: date; text-align: right; } .inquiry-item .c-view { grid-area: view; }
+  .inquiry-item .c-view .btn { width: 100%; }
+  .detail-grid { grid-template-columns: 1fr; gap: 0.1rem; } .detail-grid dd { margin-bottom: 0.6rem; }
+  .admin-toolbar .form-group { flex: 1 1 8rem; }
+}

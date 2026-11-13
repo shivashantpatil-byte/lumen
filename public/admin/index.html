@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow, noarchive" />
+  <title>Inquiries — LUMEN admin</title>
+  <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/admin/css/admin.css" />
+</head>
+<body data-page="dashboard" class="admin-body">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="admin-header">
+    <span class="logo">LUMEN <span class="admin-tag">admin</span></span>
+    <button type="button" class="btn btn-ghost" id="logout">Sign out</button>
+  </header>
+
+  <main id="main" tabindex="-1" class="admin-main">
+    <h1>Inquiries</h1>
+
+    <div class="admin-toolbar">
+      <div class="form-group">
+        <label for="filter-status">Status</label>
+        <select id="filter-status">
+          <option value="">All</option>
+          <option value="new">New</option>
+          <option value="in_progress">In progress</option>
+          <option value="responded">Responded</option>
+          <option value="archived">Archived</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="sort-order">Sort by date</label>
+        <select id="sort-order">
+          <option value="desc">Newest first</option>
+          <option value="asc">Oldest first</option>
+        </select>
+      </div>
+      <button type="button" class="btn btn-ghost" id="reload">Reload</button>
+    </div>
+
+    <p id="list-status" role="status" aria-live="polite" class="admin-status">Loading inquiries…</p>
+    <ul id="list" class="inquiry-list" aria-label="Inquiries"></ul>
+
+    <nav class="admin-pager" aria-label="Pagination">
+      <button type="button" class="btn btn-ghost" id="prev">Previous</button>
+      <span id="page-info" aria-live="polite"></span>
+      <button type="button" class="btn btn-ghost" id="next">Next</button>
+    </nav>
+  </main>
+
+  <dialog id="detail" aria-labelledby="detail-title">
+    <div class="detail-inner">
+      <h2 id="detail-title">Inquiry</h2>
+      <dl class="detail-grid">
+        <dt>Name</dt><dd id="d-name"></dd>
+        <dt>Email</dt><dd id="d-email"></dd>
+        <dt>Project type</dt><dd id="d-type"></dd>
+        <dt>Received</dt><dd id="d-created"></dd>
+        <dt>Last updated</dt><dd id="d-updated"></dd>
+      </dl>
+      <h3 class="detail-label">Message</h3>
+      <p id="d-message" class="detail-message"></p>
+      <div class="form-group">
+        <label for="d-status">Status</label>
+        <select id="d-status">
+          <option value="new">New</option>
+          <option value="in_progress">In progress</option>
+          <option value="responded">Responded</option>
+          <option value="archived">Archived</option>
+        </select>
+      </div>
+      <p id="d-feedback" role="status" aria-live="polite" class="admin-status"></p>
+      <div class="detail-actions">
+        <button type="button" class="btn btn-primary" id="d-save">Save status</button>
+        <button type="button" class="btn btn-ghost" id="d-close">Close</button>
+      </div>
+    </div>
+  </dialog>
+
+  <script src="/admin/js/admin.js"></script>
+</body>
+</html>
